@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'image_data.dart';
 
-enum AvatarType { ON, OFF, STORY, MYSTORY }
+enum AvatarType { ON, OFF, STORY, MYSTORY, BASIC }
 
 class ImageAvatar extends StatelessWidget {
   final String url;
@@ -13,7 +13,7 @@ class ImageAvatar extends StatelessWidget {
 
   const ImageAvatar(
       {super.key,
-      required this.width,
+      this.width = 30,
       required this.url,
       required this.type,
       this.onTap});
@@ -21,6 +21,7 @@ class ImageAvatar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return switch (type) {
+      AvatarType.BASIC => _basicImage(),
       AvatarType.ON => _activeAvatar(),
       AvatarType.OFF => _offAvatar(),
       AvatarType.STORY => _storyAvatar(),
