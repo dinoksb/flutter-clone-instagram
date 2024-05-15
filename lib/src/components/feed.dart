@@ -7,7 +7,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../controller/comment_bottom_sheet.dart';
+import 'comment_bottom_sheet.dart';
 
 class Feed extends StatefulWidget {
   final String userUrl;
@@ -219,6 +219,7 @@ class _FeedState extends State<Feed> {
             child: ExpandableText(
               '안녕하세요.\n안녕하세요.\n안녕하세요.\n안녕하세요.\n안녕하세요.',
               expandText: '더보기', // 더보기 글자
+              expandOnTextTap: true,
               linkColor: Colors.grey, // 더보기 글자 색 지정
               prefixText: widget.userName, // 작성자 이름
               prefixStyle: // 작성자 이름 텍스트 스타일
