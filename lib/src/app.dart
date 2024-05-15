@@ -1,9 +1,9 @@
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_clone_instagram_blog/src/components/image_avatar.dart';
 import 'package:flutter_clone_instagram_blog/src/components/image_data.dart';
 import 'package:flutter_clone_instagram_blog/src/controller/bottom_nav_controller.dart';
 import 'package:flutter_clone_instagram_blog/src/home.dart';
-import 'package:get/get.dart';
 
 class App extends GetView<BottomNavController> {
   const App({super.key});
@@ -56,16 +56,16 @@ class App extends GetView<BottomNavController> {
             label: 'home'),
         const BottomNavigationBarItem(
             icon: ImageAvatar(
-              imageUrl:
+              url:
                   'https://image.utoimage.com/preview/cp872722/2022/12/202212008462_500.jpg',
-              type: Shape.OFF,
-              size: 25,
+              type: AvatarType.OFF,
+              width: 25,
             ),
             activeIcon: ImageAvatar(
-              imageUrl:
+              url:
                 'https://demo.ycart.kr/shopboth_farm_max5_001/data/editor/1612/cd2f39a0598c81712450b871c218164f_1482469221_493.jpg',
-              type: Shape.ACTIVE,
-              size: 25,
+              type: AvatarType.ON,
+              width: 25,
             ),
             label: 'home'),
       ],
