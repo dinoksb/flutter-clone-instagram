@@ -1,9 +1,8 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_clone_instagram_blog/src/components/feed.dart';
 import 'package:flutter_clone_instagram_blog/src/components/image_data.dart';
 import 'package:get/get.dart';
-import 'components/image_avatar.dart';
+import '../components/image_avatar.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});

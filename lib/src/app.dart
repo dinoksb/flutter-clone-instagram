@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_clone_instagram_blog/src/components/image_avatar.dart';
 import 'package:flutter_clone_instagram_blog/src/components/image_data.dart';
 import 'package:flutter_clone_instagram_blog/src/controller/bottom_nav_controller.dart';
-import 'package:flutter_clone_instagram_blog/src/home.dart';
+import 'package:flutter_clone_instagram_blog/src/pages/home.dart';
+
+import 'pages/search.dart';
 
 class App extends GetView<BottomNavController> {
   const App({super.key});
@@ -77,7 +79,7 @@ class App extends GetView<BottomNavController> {
       index:  controller.pageIndex,
       children: const [
         Home(),
-        Center(child: Text('search'),),
+        Search(),
         Center(child: Text('upload'),),
         Center(child: Text('reels'),),
         Center(child: Text('mypage'),),

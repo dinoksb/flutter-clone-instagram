@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../components/image_avatar.dart';
+import 'image_avatar.dart';
 
 class CommentBottomSheet extends StatelessWidget {
   const CommentBottomSheet({super.key});
