@@ -40,6 +40,6 @@ class SearchFocusController extends GetxController
   }
 
   void submitted(String value){
-    Get.off(() => const SearchResult());
+    Get.off(() => const SearchResult(), id: 1);
   }
 }

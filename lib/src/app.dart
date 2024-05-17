@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_clone_instagram_blog/src/components/image_avatar.dart';
@@ -15,7 +16,7 @@ class App extends GetView<BottomNavController> {
     return PopScope(
       canPop: false,
       onPopInvoked: (bool didpop) {
-         controller.popAction();
+        controller.popAction();
       },
       child: Obx(
         () => Scaffold(
@@ -65,7 +66,7 @@ class App extends GetView<BottomNavController> {
             ),
             activeIcon: ImageAvatar(
               url:
-                'https://demo.ycart.kr/shopboth_farm_max5_001/data/editor/1612/cd2f39a0598c81712450b871c218164f_1482469221_493.jpg',
+                  'https://demo.ycart.kr/shopboth_farm_max5_001/data/editor/1612/cd2f39a0598c81712450b871c218164f_1482469221_493.jpg',
               type: AvatarType.ON,
               width: 25,
             ),
@@ -74,15 +75,27 @@ class App extends GetView<BottomNavController> {
     );
   }
 
-  Widget _body(){
+  Widget _body() {
     return IndexedStack(
-      index:  controller.pageIndex,
-      children: const [
-        Home(),
-        Search(),
-        Center(child: Text('upload'),),
-        Center(child: Text('reels'),),
-        Center(child: Text('mypage'),),
+      index: controller.pageIndex,
+      children: [
+        const Home(),
+        Navigator(
+            key: Get.nestedKey(1),
+            onGenerateRoute: (settings) {
+              return GetPageRoute(
+                page: () => const Search(),
+              );
+            }),
+        const Center(
+          child: Text('upload'),
+        ),
+        const Center(
+          child: Text('reels'),
+        ),
+        const Center(
+          child: Text('mypage'),
+        ),
       ],
     );
   }
