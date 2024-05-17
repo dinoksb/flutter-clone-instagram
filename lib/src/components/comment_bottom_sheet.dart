@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'image_avatar.dart';
 
 class CommentBottomSheet extends StatelessWidget {

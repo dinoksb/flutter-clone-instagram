@@ -1,4 +1,3 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_clone_instagram_blog/src/components/feed.dart';
 import 'package:flutter_clone_instagram_blog/src/components/image_data.dart';

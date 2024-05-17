@@ -79,7 +79,6 @@ class App extends GetView<BottomNavController> {
       index:  controller.pageIndex,
       children: const [
         Home(),
-        // Center(child: Text('search')),
         Search(),
         Center(child: Text('upload'),),
         Center(child: Text('reels'),),
