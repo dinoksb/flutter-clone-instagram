@@ -49,6 +49,7 @@ class IconsPath {
   static String get uploadComplete => 'assets/images/upload_complete_icon.jpg';
   static String get reelsOn => 'assets/images/reels_on_icon.png';
   static String get reelsOff => 'assets/images/reels_off_icon.png';
+  static String get arrowDown => 'assets/images/down_arrow.png';
   static String get mypageBottomSheet01 =>
       'assets/images/mypage_bottom_sheet_01.jpg';
   static String get mypageBottomSheet02 =>

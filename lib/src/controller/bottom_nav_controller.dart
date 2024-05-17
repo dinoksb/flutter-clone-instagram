@@ -1,6 +1,6 @@
 import 'dart:io';
-
 import 'package:get/get.dart';
+import '../pages/upload.dart';
 
 enum Page { HOME, SEARCH, UPLOAD, REELS, MYPAGE }
 
@@ -15,10 +15,12 @@ class BottomNavController extends GetxController {
     switch(page){
       case Page.HOME:
       case Page.SEARCH:
-      case Page.UPLOAD:
       case Page.REELS:
       case Page.MYPAGE:
         moveTo(value);
+      case Page.UPLOAD:
+        moveToUpload();
+
     }
   }
 
@@ -29,6 +31,9 @@ class BottomNavController extends GetxController {
     }
   }
 
+  void moveToUpload() {
+    Get.to(() => const Upload());
+  }
    Future<bool> popAction() async {
     if (bottomHistory.length == 1) {
       return true;
