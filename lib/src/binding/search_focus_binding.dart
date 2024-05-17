@@ -6,6 +6,7 @@ import '../controller/search_focus_controller.dart';
 class SearchFocusBinding implements Bindings{
   @override
   void dependencies() {
-    Get.put(SearchFocusController());
+    Get.lazyPut<SearchFocusController>(() => SearchFocusController(), fenix: true);
+    // Get.put(SearchFocusController());
   }
 }

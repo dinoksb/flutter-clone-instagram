@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import '../controller/search_focus_controller.dart';
 
 class SearchTextField extends StatelessWidget {
   final TextEditingController controller;
@@ -15,8 +17,7 @@ class SearchTextField extends StatelessWidget {
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(8.0)),
       child: TextField(
         autofocus: focus,
-        
-        // onSubmitted: Get.find<SearchFocusController>().submitted,
+        onSubmitted: Get.find<SearchFocusController>().submitted,
         controller: controller,
         cursorColor: const Color(0xff7f7f7f),
         decoration: InputDecoration(

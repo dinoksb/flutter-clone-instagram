@@ -3,7 +3,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_clone_instagram_blog/src/components/image_data.dart';
 import 'package:get/get.dart';
 import '../binding/search_focus_binding.dart';
-import '../components/search_focus.dart';
+import 'search_focus.dart';
 import '../components/search_grid_view.dart';
 
 class Search extends StatelessWidget {
