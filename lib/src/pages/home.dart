@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_clone_instagram_blog/src/components/feed.dart';
 import 'package:flutter_clone_instagram_blog/src/components/image_data.dart';
 import 'package:get/get.dart';
+import '../components/feed_widget.dart';
 import '../components/image_avatar.dart';
+import '../controller/feed_controller.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -49,22 +50,15 @@ class Home extends StatelessWidget {
     );
   }
 
-  Widget _body() {
-    return SliverList.builder(
-      itemCount: 50,
-      itemBuilder: (context, index) => const Feed(
-        userUrl:
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnnnObTCNg1QJoEd9Krwl3kSUnPYTZrxb5Ig&usqp=CAU',
-        userName: 'dinosb',
-        images: [
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnnnObTCNg1QJoEd9Krwl3kSUnPYTZrxb5Ig&usqp=CAU',
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRisv-yQgXGrto6OxQxX62JyvyQGvRsQQ760g&usqp=CAU',
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQifBWUhSiSfL0t8M3XCOe8aIyS6de2xWrt5A&usqp=CAU',
-        ],
-        countLikes: 10,
-        countComment: 5,
-      ),
-    );
+    Widget _body() {
+    return GetX<FeedController>(builder: (controller) {
+      return SliverList.builder(
+          itemCount: controller.feeds.length,
+          itemBuilder: (context, index) {
+            final feed = controller.feeds[index];
+            return FeedWidget(feed: feed);
+          });
+    });
   }
 
   Widget _story() {
