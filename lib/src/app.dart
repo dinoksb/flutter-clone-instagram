@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:flutter_clone_instagram_blog/src/pages/mypage.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_clone_instagram_blog/src/components/image_avatar.dart';
@@ -93,9 +94,7 @@ class App extends GetView<BottomNavController> {
         const Center(
           child: Text('reels'),
         ),
-        const Center(
-          child: Text('mypage'),
-        ),
+        const MyPage(),
       ],
     );
   }
