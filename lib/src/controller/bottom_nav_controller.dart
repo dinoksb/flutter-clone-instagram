@@ -19,9 +19,10 @@ class BottomNavController extends GetxController {
       case Page.REELS:
       case Page.MYPAGE:
         moveTo(value);
+        break;
       case Page.UPLOAD:
         moveToUpload();
-
+        break;
     }
   }
 
