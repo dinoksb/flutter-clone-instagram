@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:flutter_clone_instagram_blog/src/binding/upload_binding.dart';
 import 'package:get/get.dart';
 import '../pages/upload.dart';
 
@@ -18,9 +19,10 @@ class BottomNavController extends GetxController {
       case Page.REELS:
       case Page.MYPAGE:
         moveTo(value);
+        break;
       case Page.UPLOAD:
         moveToUpload();
-
+        break;
     }
   }
 
@@ -32,7 +34,7 @@ class BottomNavController extends GetxController {
   }
 
   void moveToUpload() {
-    Get.to(() => const Upload());
+    Get.to(() => const Upload(), binding: UploadBinding());
   }
    Future<bool> popAction() async {
     if (bottomHistory.length == 1) {

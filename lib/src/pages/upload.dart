@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_clone_instagram_blog/src/components/image_data.dart';
+import 'package:flutter_clone_instagram_blog/src/components/upload_image.dart';
+import 'package:flutter_clone_instagram_blog/src/controller/upload_controller.dart';
 import 'package:get/get.dart';
+import 'package:photo_manager_image_provider/photo_manager_image_provider.dart';
 
-class Upload extends StatelessWidget {
+class Upload extends GetView<UploadController> {
   const Upload({super.key});
 
   @override
@@ -35,22 +38,31 @@ class Upload extends StatelessWidget {
       body: Column(
         children: [
           // preview 영역
-          _preview(),
+          Obx(() => _preview()),
           // header 영역
-          _header(),
+          Obx(() => _header()),
           // image 영역
-          _images(),
+          Obx(() => _images()),
         ],
       ),
     );
   }
 
   Widget _preview() {
-    return Container(
+    return (controller.selectedImage != null)
+    ? SizedBox(
       height: Get.size.width,
       width: Get.size.width,
-      color: Colors.black,
-    );
+      child: AssetEntityImage(
+        controller.selectedImage!,
+        isOriginal: false,
+        fit: BoxFit.contain,
+      )) 
+      : Container(
+        height: Get.size.width,
+        width: Get.size.width,
+        color: Colors.black
+      );
   }
 
   Widget _header() {
@@ -59,14 +71,20 @@ class Upload extends StatelessWidget {
       children: [
         Row(
           children: [
-            const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Text(
-                'Recent',
-                style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: GestureDetector(
+                onTap: controller.moveToChoose,
+                child: Text(
+                  // 앨범의 이름을 표시하는 영역
+                  (controller.albums.isNotEmpty)
+                      ? controller.albums[controller.index].name!
+                      : '텅',
+                  style: const TextStyle(
+                      fontSize: 18,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold),
+                ),
               ),
             ),
             ImageData(
@@ -105,14 +123,24 @@ class Upload extends StatelessWidget {
 
   Widget _images() {
     return Expanded(
-      child: GridView.builder(
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 4, mainAxisSpacing: 1.0, crossAxisSpacing: 1.0),
-        itemCount: 50,
-        itemBuilder: (context, index) => Container(
-          color: Colors.blue,
-        ),
-      ),
+      child: (controller.albums.isNotEmpty)
+          ? GridView.builder(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 4,
+                  mainAxisSpacing: 1.0,
+                  crossAxisSpacing: 1.0),
+              itemCount: controller.albums[controller.index].images!.length,
+              itemBuilder: (context, index) => // 앨범의 이미지를 보여주는 위젯
+                  UploadImage(
+                      onTap: () {
+                        controller.select(
+                            controller.albums[controller.index].images![index]);},
+                      entity:
+                          controller.albums[controller.index].images![index],
+                      fit: BoxFit.cover))
+          : const Center(
+              child: Text('텅'),
+            ),
     );
   }
 }
