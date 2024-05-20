@@ -15,7 +15,12 @@ class MyPageButton extends StatelessWidget {
           color: const Color(0xfff3f3f3),
           borderRadius: BorderRadius.circular(8.0),
         ),
-        child:  Center(child: Text(label, style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 18),),),
+        child: Center(
+          child: Text(
+            label,
+            style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
+          ),
+        ),
       ),
     );
   }
