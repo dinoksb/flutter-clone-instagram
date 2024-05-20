@@ -38,11 +38,11 @@ class Upload extends GetView<UploadController> {
       body: Column(
         children: [
           // preview 영역
-          _preview(),
+          Obx(() => _preview()),
           // header 영역
-          _header(),
+          Obx(() => _header()),
           // image 영역
-          _images(),
+          Obx(() => _images()),
         ],
       ),
     );
@@ -74,7 +74,7 @@ class Upload extends GetView<UploadController> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: GestureDetector(
-                onTap: () => controller.moveToChoose(),
+                onTap: controller.moveToChoose,
                 child: Text(
                   // 앨범의 이름을 표시하는 영역
                   (controller.albums.isNotEmpty)
